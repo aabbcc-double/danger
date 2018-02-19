@@ -498,12 +498,14 @@ module Danger
         end
 
         # Sort to group inline comments by file
-        {
-          warnings: warnings.select(&:inline?).sort(&cmp),
-          errors: errors.select(&:inline?).sort(&cmp),
-          messages: messages.select(&:inline?).sort(&cmp),
-          markdowns: markdowns.select(&:inline?).sort(&cmp)
-        }
+        # Currenlty commented due to
+        # https://github.com/danger/danger/issues/924
+        # {
+        #   warnings: warnings.select(&:inline?).sort(&cmp),
+        #   errors: errors.select(&:inline?).sort(&cmp),
+        #   messages: messages.select(&:inline?).sort(&cmp),
+        #   markdowns: markdowns.select(&:inline?).sort(&cmp)
+        # }
       end
 
       def merge_violations(*violation_groups)
